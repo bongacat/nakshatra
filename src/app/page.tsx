@@ -1,74 +1,156 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Button, Card, Typography } from 'antd';
-import { motion, AnimatePresence } from 'framer-motion';
-import Header from './components/Header';
+
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { Button, Card, Typography } from "antd";
+import { motion, AnimatePresence } from "framer-motion";
+import Header from "./components/Header";
+import '@fontsource/orbitron';
+import '@fontsource/dm-sans';
+
+import Footer from "./components/Footer";
+
+const StyledCard = styled(Card)`
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background: linear-gradient(to right, #000000, #232323);
+  border: none;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  
+`;
+
+const StyledTypography = styled(Typography)`
+  text-align: center;
+  font-size: clamp(1.65rem, 4vw, 1.75rem);
+  color: white;
+  padding: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 0.25rem; /* Reduced margin-bottom */
+  
+  @media (min-width: 768px) {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem; /* Slightly increased for larger screens */
+  }
+`;
+
+const WordContainer = styled.div`
+  height: 6rem;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 0.25rem 0; /* Adjusted margin */
+  
+  @media (min-width: 768px) {
+    height: 5.5rem;
+    margin: 0.5rem 0; /* Adjusted margin for larger screens */
+  }
+  
+  @media (min-width: 1200px) {
+    height: 5rem;
+    margin: 0.75rem 0; /* Adjusted margin for larger screens */
+  }
+`;
+
+const StyledSubTypography = styled(Typography)`
+  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.125rem);
+  color: white;
+  padding: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 2rem; /* Increased margin-top for smaller screens */
+  
+  @media (min-width: 768px) {
+    padding: 0.75rem;
+    margin-top: 1.5rem; /* Adjusted margin for larger screens */
+  }
+  
+  @media (min-width: 1200px) {
+    padding: 1rem;
+    margin-top: 1.75rem; /* Adjusted margin for larger screens */
+  }
+`;
+
+const StyledMotionDiv = styled(motion.div)`
+  position: absolute;
+  color: #7adc40;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 4.6vw, 2.6rem);
+  line-height: 1.2;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledButton = styled(Button)`
+  width: clamp(8rem, 15vw, 11.25rem);
+  height: clamp(2.5rem, 6vh, 3.5rem);
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  font-family: 'DM Sans', sans-serif;
+  background-color: #93e145;
+  border-radius: 1.875rem;
+  border: none;
+  display: block;
+  margin: clamp(1.5rem, 3vw, 2rem) auto;
+`;
 
 const Home = () => {
-  const words = ["Apple", "Banana", "Mango"];
+  const words = [
+    "Interactive Mapping",
+    "Indoor Navigation",
+    "Event Tracking",
+    "Smarter Emergency Evacuations"
+  ];
   const [currentWord, setCurrentWord] = useState(0);
-
+    
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 2000);
     return () => clearInterval(interval);
   }, [words.length]);
-
+    
   return (
     <div className="App">
       <Header />
-      <Card
-        style={{
-          width: "100%",
-          borderTopLeftRadius: 0,
-          borderTopRightRadius: 0,
-          borderBottomLeftRadius: 8,
-          borderBottomRightRadius: 8,
-          background: "linear-gradient(to bottom, #3c3b3b, #4a4a4a)",
-          border: "none",
-        }}
-      >
-        <Typography style={{ textAlign: "center", fontSize: "25px", color: "white", padding: "10px" }}>
+      <StyledCard>
+        <StyledTypography>
           The only Solution your premise needs for
-        </Typography>
-        <div style={{ height: "35px", overflow: "hidden", display: "flex", justifyContent: "center" }}>
+        </StyledTypography>
+        <WordContainer>
           <AnimatePresence mode="wait">
-            <motion.div
+            <StyledMotionDiv
               key={currentWord}
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 30, opacity: 0 }}
+              exit={{ y: 20, opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              style={{ position: "absolute", fontSize: "25px", color: "#93e145"}}
             >
               {words[currentWord]}
-            </motion.div>
+            </StyledMotionDiv>
           </AnimatePresence>
-        </div>
-        <Typography style={{ textAlign: "center", fontSize: "15px", color: "white", padding: "20px"}}>
-          Nakshatra transforms spaces with 3D mapping, AR/VR based indoor navigation, and real-time event tracking - making navigation easy, emergency evacuation smarter, and events seamless.
-        </Typography>
-        <Button
-  type="primary"
-  style={{
-    width: "150px",
-    height: "48px",
-    fontSize: "16px",
-    backgroundColor: "#93e145",
-    borderRadius: "30px",
-    border: "none",
-    display: "block",
-    margin: "20px auto",
-  }}
->
-  Contact Us
-</Button>
-
-      </Card>
+        </WordContainer>
+        <StyledSubTypography>
+          Nakshatra transforms spaces with 3D mapping, AR/VR based indoor
+          navigation, and real-time event tracking - making navigation easy,
+          emergency evacuation smarter, and events seamless.
+        </StyledSubTypography>
+        <StyledButton type="primary">Contact Us</StyledButton>
+      </StyledCard>
+      <Footer />
       
+
+
     </div>
   );
 };
-
+ 
 export default Home;
