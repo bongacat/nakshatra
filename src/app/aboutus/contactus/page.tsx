@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "@/app/components/Footer";
+import Header from "@/app/components/Header";
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, MailOutlined, MessageOutlined, PhoneOutlined } from '@ant-design/icons';
 
