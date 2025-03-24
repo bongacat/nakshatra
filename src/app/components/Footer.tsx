@@ -1,9 +1,8 @@
 "use client";
-import { List } from "antd";
+import { Divider, List } from "antd";
 import '@fontsource/orbitron';
 import styled from "styled-components";
-import { DM_Sans } from "next/font/google";
-
+import { InstagramOutlined, LinkedinOutlined, YoutubeOutlined, MailOutlined, XOutlined } from "@ant-design/icons";
 
 const FooterContainer = styled.div`
     display: flex;
@@ -51,7 +50,6 @@ const StyledList = styled(List)`
     }
 `;
 
-
 const ListItemLink = styled.a`
     color: white;
     text-decoration: none;
@@ -63,6 +61,8 @@ const ListItemLink = styled.a`
         text-decoration: underline;
     }
 `;
+
+
 
 export default function Footer() {
     return (
@@ -76,11 +76,10 @@ export default function Footer() {
             </StyledList>
 
             <StyledList size="small" bordered header="SOLUTIONS">
-                <List.Item><ListItemLink href="#">Foo</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Lorem ipsum</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Voluptate velit</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Labore et dolore</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Dolor sit amet</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">Interactive Mapping</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">Indoor mapping</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">Event Tracking</ListItemLink></List.Item>
+               
             </StyledList>
 
             <StyledList size="small" bordered header="OUR MAPS">
@@ -92,12 +91,21 @@ export default function Footer() {
             </StyledList>
 
             <StyledList size="small" bordered header="RESOURCES">
-                <List.Item><ListItemLink href="#">Graviton Docs</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Quasarkit API</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Epsilon Handbook</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Hyperdrive Logs</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Nebula Guide</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">Blogs</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">API</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">FAQ</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">Developers</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="#">Documentation</ListItemLink></List.Item>
             </StyledList>
+
+            <Divider
+                style={{
+                    borderTop: "1px solid grey",
+                    opacity: "0.33"
+                }}
+            />
+            
+            
         </FooterContainer>
     );
 }

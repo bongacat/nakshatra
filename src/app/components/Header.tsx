@@ -24,8 +24,9 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: linear-gradient(to right, #000000, #232323);
-  position: fixed; /* Change from sticky to fixed */
+  background: rgb(0,0,0);
+  background: linear-gradient(99deg, rgba(0,0,0,1) 0%, rgba(30,30,30,1) 50%, rgba(0,0,0,1) 100%);
+  position: sticky; /* Change from fixed to sticky */
   top: 0;
   left: 0; /* Add this to ensure full-width positioning */
   z-index: 1000;
@@ -43,13 +44,17 @@ const Logo = styled.div`
 const DesktopMenu = styled.ul`
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Push items to the right */
+  flex-grow: 1; /* Allows menu to take available space */
   gap: 3rem;
-  
+  margin: 0;
+  padding: 0;
   li {
-    display: inline;
+    display: flex;
+    align-items: center;
     font-family: 'Orbitron', sans-serif;
   }
-  
   a {
     text-decoration: none;
     color: #7adc40;
@@ -57,16 +62,23 @@ const DesktopMenu = styled.ul`
     font-weight: 600;
     font-size: 1.1rem;
     transition: color 0.3s ease;
-    
     &:hover {
       color: white;
     }
   }
-  
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) { /* Tablets */
+    gap: 2rem; /* Slightly reduce spacing */
+  }
+  @media (max-width: 769px) { /* Adjusted breakpoint */
+    gap: 1rem; /* Further reduce spacing */
+    margin-right: 1rem; /* Add some right margin to prevent clipping */
+  }
+  @media (max-width: 768px) { /* Mobile */
     display: none;
   }
 `;
+
+
 
 const MobileMenuButton = styled(Button)`
   display: none;
@@ -93,7 +105,32 @@ const MobileMenu = styled.div<{ $isOpen?: boolean }>`
   border-bottom-right-radius: 30px;
   display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
 `;
+const StyledHeaderButton = styled(Button)`
+  width: clamp(6rem, 8vw, 6.25rem);
+  height: clamp(1.8rem, 4vh, 1.8rem);
+  font-size: clamp(0.875rem, 1vw, 0.875rem);
+  color:white;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #7adc40;
+  border-radius: 1.875rem;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+  &:hover {
+    color:white !important;
+    transform: scale(1.05);
+    background-color: #11a5e9 !important;
+  }
 
+  &:active {
+    transform: scale(0.95);
+  }
+`;
 
 
 
@@ -112,6 +149,7 @@ export default function Header() {
         <li><a href="#">Our Maps</a></li>
         <li><a href="#">Resources</a></li>
         <li><a href="#">About Us</a></li>
+        <li><StyledHeaderButton>Contact Us</StyledHeaderButton></li>
       </DesktopMenu>
       
       {/* Mobile Menu Button */}
