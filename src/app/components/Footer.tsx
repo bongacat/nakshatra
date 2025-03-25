@@ -3,6 +3,8 @@ import { Divider, List } from "antd";
 import '@fontsource/orbitron';
 import styled from "styled-components";
 import { InstagramOutlined, LinkedinOutlined, YoutubeOutlined, XOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import Image from "next/image";
 
 
 const SocialContainer = styled.div`
@@ -13,6 +15,7 @@ const SocialContainer = styled.div`
   flex-wrap: wrap;
   width: 100%; /* Take full width */
   margin-left: auto; /* Push to the right */
+  
 
   @media (max-width: 768px) {
     gap: 10px; /* Reduce gap for smaller screens */
@@ -94,16 +97,16 @@ export default function Footer() {
         <FooterContainer>
             <StyledList size="small" bordered header="COMPANY">
                 <List.Item><ListItemLink href="/aboutus">About Us</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/aboutus/careers">Careers</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/aboutus/contactus">Contact</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/careers">Careers</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/contactus">Contact</ListItemLink></List.Item>
                 <List.Item><ListItemLink href="#">Privacy</ListItemLink></List.Item>
                 <List.Item><ListItemLink href="#">Terms</ListItemLink></List.Item>
             </StyledList>
 
             <StyledList size="small" bordered header="SOLUTIONS">
-                <List.Item><ListItemLink href="/solutions/intmapp">Interactive Mapping</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/solutions/indoormap">Indoor mapping</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/solutions/eventtrack">Event Tracking</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/intmapp">Interactive Mapping</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/indoormap">Indoor mapping</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/eventtrack">Event Tracking</ListItemLink></List.Item>
                
             </StyledList>
 
@@ -116,11 +119,11 @@ export default function Footer() {
             </StyledList>
 
             <StyledList size="small" bordered header="RESOURCES">
-                <List.Item><ListItemLink href="/resources/blogs">Blogs</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/resources/API">API</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/resources/FAQ">FAQ</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/resources/developers">Developers</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/resources/documentation">Documentation</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/blogs">Blogs</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/API">API</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/FAQ">FAQ</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/developers">Developers</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/documentation">Documentation</ListItemLink></List.Item>
             </StyledList>
 
             <Divider
@@ -130,8 +133,13 @@ export default function Footer() {
                 }}
             />
              <SocialContainer>
-      <InstagramOutlined />
+                
+             <Link href="https://www.instagram.com/nakshatra.maps/" target="_blank" rel="noopener noreferrer">
+             <InstagramOutlined />
+             </Link>
+      <Link href="https://www.linkedin.com/company/nakshatra-mapping-solutions/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
       <LinkedinOutlined />
+      </Link>
       <XOutlined />
       <YoutubeOutlined />
     </SocialContainer>

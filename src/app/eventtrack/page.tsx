@@ -3,7 +3,7 @@ import Footer from "@/app/components/Footer";
 import React from "react";
 import ComingSoon from "@/app/components/comingsoon";
 
-export default  function Careers (){
+export default  function App (){
     return (
     <>
     <Header />

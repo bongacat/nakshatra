@@ -9,18 +9,39 @@ const Container = styled.div`
   justify-content: center;
   height: 100vh;
   background-color: black;
+  padding: 20px; /* Ensures padding on smaller screens */
+
+  @media (max-width: 768px) {
+    height: 80vh; /* Adjusts height for tablets */
+  }
+
+  @media (max-width: 480px) {
+    height: 70vh; /* Adjusts height for smaller devices */
+  }
 `;
 
 const Text = styled(motion.h1)`
   font-size: 4rem;
   font-weight: bold;
   color: #7adc40;
-  font-family: 'Orbitron', sans-serif;
-  
+  font-family: "Orbitron", sans-serif;
   text-transform: uppercase;
   border-right: 3px solid #7adc40;
   white-space: nowrap;
   overflow: hidden;
+  
+  @media (max-width: 1024px) {
+    font-size: 3rem; /* Adjusts font size for tablets */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem; /* Adjusts font size for smaller tablets */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem; /* Adjusts font size for mobile devices */
+    border-right: 2px solid #7adc40; /* Adjusts border thickness */
+  }
 `;
 
 const ComingSoon = () => {

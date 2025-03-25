@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import '@fontsource/orbitron';
 import '@fontsource/dm-sans';
+import { useRouter } from 'next/navigation';
 
 
 import Footer from "./components/Footer";
@@ -141,6 +142,7 @@ const Home = () => {
     "Smarter Emergency Evacuations"
   ];
   const [currentWord, setCurrentWord] = useState(0);
+  const router = useRouter();
     
   useEffect(() => {
     const interval = setInterval(() => {
@@ -174,7 +176,7 @@ const Home = () => {
           navigation, and real-time event tracking - making navigation easy,
           emergency evacuation smarter, and events seamless.
         </StyledSubTypography>
-        <StyledButton type="primary">Contact Us</StyledButton>
+        <StyledButton onClick={() => router.push('/contactus')}>Contact Us</StyledButton>
       </StyledCard>
       <Footer />
       

@@ -7,6 +7,7 @@ import type { MenuProps } from "antd";
 import styled from "styled-components";
 import '@fontsource/orbitron';
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 // Define menu items
 type MenuItem = Required<MenuProps>["items"][number];
@@ -88,7 +89,7 @@ const MobileMenuButton = styled(Button)`
 
 const MobileMenu = styled.div<{ $isOpen?: boolean }>`
   position: fixed;
-  top: 60px;
+  top: 84px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -130,6 +131,7 @@ const StyledHeaderButton = styled(Button)`
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter()
   
   return (
     <Navbar>
@@ -143,7 +145,7 @@ export default function Header() {
         <li>Our Maps</li>
         <li>Resources</li>
         <li>About Us</li>
-        <li><StyledHeaderButton>Contact Us</StyledHeaderButton></li>
+        <li><StyledHeaderButton onClick={() => router.push('/contactus')}>Contact Us</StyledHeaderButton></li>
       </DesktopMenu>
       
       {/* Mobile Menu Button */}
