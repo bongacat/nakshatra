@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  compiler: {
+    styledComponents: true, // Enables styled-components SWC transform
+  },
 };
 
 export default nextConfig;
