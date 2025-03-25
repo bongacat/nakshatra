@@ -2,7 +2,32 @@
 import { Divider, List } from "antd";
 import '@fontsource/orbitron';
 import styled from "styled-components";
-import { InstagramOutlined, LinkedinOutlined, YoutubeOutlined, MailOutlined, XOutlined } from "@ant-design/icons";
+import { InstagramOutlined, LinkedinOutlined, YoutubeOutlined, XOutlined } from "@ant-design/icons";
+
+
+const SocialContainer = styled.div`
+  display: flex;
+  justify-content: flex-end; /* Align icons to the right */
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%; /* Take full width */
+  margin-left: auto; /* Push to the right */
+
+  @media (max-width: 768px) {
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  svg {
+    font-size: 32px; /* Bigger icons */
+    color: #7adc40;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #11a5e9 /* Change color on hover */
+    }
+  }
+`;
 
 const FooterContainer = styled.div`
     display: flex;
@@ -68,17 +93,17 @@ export default function Footer() {
     return (
         <FooterContainer>
             <StyledList size="small" bordered header="COMPANY">
-                <List.Item><ListItemLink href="#">About Us</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Careers</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Contact</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/aboutus">About Us</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/aboutus/careers">Careers</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/aboutus/contactus">Contact</ListItemLink></List.Item>
                 <List.Item><ListItemLink href="#">Privacy</ListItemLink></List.Item>
                 <List.Item><ListItemLink href="#">Terms</ListItemLink></List.Item>
             </StyledList>
 
             <StyledList size="small" bordered header="SOLUTIONS">
-                <List.Item><ListItemLink href="#">Interactive Mapping</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Indoor mapping</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Event Tracking</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/solutions/intmapp">Interactive Mapping</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/solutions/indoormap">Indoor mapping</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/solutions/eventtrack">Event Tracking</ListItemLink></List.Item>
                
             </StyledList>
 
@@ -91,11 +116,11 @@ export default function Footer() {
             </StyledList>
 
             <StyledList size="small" bordered header="RESOURCES">
-                <List.Item><ListItemLink href="#">Blogs</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">API</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">FAQ</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Developers</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="#">Documentation</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/resources/blogs">Blogs</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/resources/API">API</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/resources/FAQ">FAQ</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/resources/developers">Developers</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/resources/documentation">Documentation</ListItemLink></List.Item>
             </StyledList>
 
             <Divider
@@ -104,6 +129,12 @@ export default function Footer() {
                     opacity: "0.33"
                 }}
             />
+             <SocialContainer>
+      <InstagramOutlined />
+      <LinkedinOutlined />
+      <XOutlined />
+      <YoutubeOutlined />
+    </SocialContainer>
             
             
         </FooterContainer>

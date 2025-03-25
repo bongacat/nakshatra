@@ -144,11 +144,11 @@ export default function Header() {
       
       {/* Desktop Menu */}
       <DesktopMenu>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Solutions</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/solutions">Solutions</a></li>
         <li><a href="#">Our Maps</a></li>
-        <li><a href="#">Resources</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/aboutus">About Us</a></li>
         <li><StyledHeaderButton>Contact Us</StyledHeaderButton></li>
       </DesktopMenu>
       
