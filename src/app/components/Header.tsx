@@ -6,6 +6,7 @@ import { Button, Menu } from "antd";
 import type { MenuProps } from "antd";
 import styled from "styled-components";
 import '@fontsource/orbitron';
+import Image from "next/image";
 
 // Define menu items
 type MenuItem = Required<MenuProps>["items"][number];
@@ -32,14 +33,7 @@ const Navbar = styled.nav`
   z-index: 1000;
 `;
 
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  
-  img {
-    height: 50px;
-  }
-`;
+
 
 const DesktopMenu = styled.ul`
   list-style: none;
@@ -140,15 +134,15 @@ export default function Header() {
   return (
     <Navbar>
       {/* Logo */}
-      <img src="/logo.png" alt="Logo" width={150} height={65} />
+      <Image src="/logo.png" alt="Logo" width={150} height={65} />
       
       {/* Desktop Menu */}
       <DesktopMenu>
-        <li><a href="/">Home</a></li>
-        <li><a href="/solutions">Solutions</a></li>
-        <li><a href="#">Our Maps</a></li>
-        <li><a href="/resources">Resources</a></li>
-        <li><a href="/aboutus">About Us</a></li>
+        <li>Home</li>
+        <li>Solutions</li>
+        <li>Our Maps</li>
+        <li>Resources</li>
+        <li>About Us</li>
         <li><StyledHeaderButton>Contact Us</StyledHeaderButton></li>
       </DesktopMenu>
       
