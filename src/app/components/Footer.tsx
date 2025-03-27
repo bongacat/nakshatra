@@ -39,6 +39,7 @@ const FooterContainer = styled.div`
     background: #121212;
     padding: 20px;
     gap: 20px;
+    margin-top: 5rem;
 
     @media (max-width: 768px) {
         display: grid;
@@ -123,7 +124,7 @@ export default function Footer() {
                 <List.Item><ListItemLink href="/API">API</ListItemLink></List.Item>
                 <List.Item><ListItemLink href="/FAQ">FAQ</ListItemLink></List.Item>
                 <List.Item><ListItemLink href="/developers">Developers</ListItemLink></List.Item>
-                <List.Item><ListItemLink href="/documentation">Documentation</ListItemLink></List.Item>
+                <List.Item><ListItemLink href="/documentation">Docs</ListItemLink></List.Item>
             </StyledList>
 
             <Divider

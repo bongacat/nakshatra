@@ -3,33 +3,33 @@ import React from "react";
 import styled from "styled-components";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
-import { Form, Input, Button } from 'antd';
-import { UserOutlined, MailOutlined, MessageOutlined, PhoneOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Select } from 'antd';
+import { UserOutlined, MailOutlined, MessageOutlined, PhoneOutlined, GlobalOutlined } from '@ant-design/icons';
 
+const { Option } = Select;
 
 const Container = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 20px;
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
 `;
 
 const FormWrapper = styled.div`
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   padding: 20px;
-  background: #000000;
+  background: #000;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'DM Sans', sans-serif;
+  color: white;
 `;
 
 const StyledHeading = styled.h2`
   text-align: center;
   margin-bottom: 16px;
   font-family: 'Orbitron', sans-serif;
+  color: #7adc40;
 `;
 
 const StyledInput = styled(Input)`
@@ -38,7 +38,7 @@ const StyledInput = styled(Input)`
   font-family: 'DM Sans', sans-serif;
   &:focus, &:hover {
     opacity: 1;
-    background: #f0f0f0;
+    background: #4c4c4c;
   }
 `;
 
@@ -48,7 +48,7 @@ const StyledTextArea = styled(Input.TextArea)`
   font-family: 'DM Sans', sans-serif;
   &:focus, &:hover {
     opacity: 1;
-    background: #f0f0f0;
+    background: #4c4c4c;
   }
 `;
 
@@ -60,90 +60,90 @@ const GreenButton = styled(Button)`
     background-color: #218838 !important;
     border-color: #1e7e34 !important;
   }
-
 `;
 
-export default  function Contact (){
-    return (
-        <>
-        <Header />
-        <Container>
-            
-          <FormWrapper>
-            <StyledHeading>Contact Us</StyledHeading>
-            <Form 
-             
-              layout="vertical" 
-              
+const StyledFormItem = styled(Form.Item)`
+  width: 100%;
+  label {
+    color: white !important;
+  }
+`;
+
+export default function Contact() {
+  return (
+    <>
+      <Header />
+      <Container>
+        <FormWrapper>
+          <StyledHeading>Contact Us</StyledHeading>
+          <Form layout="vertical">
+            <StyledFormItem
+              name="firstName"
+              label="First Name"
+              rules={[{ required: true, message: 'Please enter your first name' }]}
             >
-              <Form.Item 
-                name="name" 
-                rules={[{ 
-                  required: true, 
-                  message: 'Please enter your full name' 
-                }]}
-              >
-                <StyledInput 
-                  prefix={<UserOutlined />} 
-                  placeholder="Full Name" 
-                />
-              </Form.Item>
-    
-              <Form.Item 
-                name="email" 
-                rules={[{ 
-                  required: true, 
-                  type: 'email', 
-                  message: 'Please enter a valid email address' 
-                }]}
-              >
-                <StyledInput 
-                  prefix={<MailOutlined />} 
-                  placeholder="Email Address" 
-                />
-              </Form.Item>
-    
-              <Form.Item 
-                name="phone" 
-                rules={[{ 
-                  pattern: /^[0-9]{10}$/, 
-                  message: 'Please enter a valid 10-digit phone number' 
-                }]}
-              >
-                <StyledInput 
-                  prefix={<PhoneOutlined />} 
-                  placeholder="Phone Number (Optional)" 
-                />
-              </Form.Item>
-    
-              <Form.Item 
-                name="message" 
-                rules={[{ 
-                  required: true, 
-                  min: 10, 
-                  message: 'Message must be at least 10 characters long' 
-                }]}
-              >
-                <StyledTextArea 
-                  placeholder="Your Message" 
-                  rows={4} 
-                />
-              </Form.Item>
-    
-              <Form.Item>
-                <GreenButton 
-                  type="primary" 
-                  htmlType="submit" 
-                  icon={<MessageOutlined />} 
-                  block
-                >
-                  Send Message
-                </GreenButton>
-              </Form.Item>
-            </Form>
-          </FormWrapper>
-        </Container>
-        <Footer />
-        </>
-      );
+              <StyledInput prefix={<UserOutlined />} placeholder="First Name" />
+            </StyledFormItem>
+
+            <StyledFormItem
+              name="lastName"
+              label="Last Name"
+              rules={[{ required: true, message: 'Please enter your last name' }]}
+            >
+              <StyledInput prefix={<UserOutlined />} placeholder="Last Name" />
+            </StyledFormItem>
+
+            <StyledFormItem
+              name="email"
+              label="Email"
+              rules={[{ required: true, type: 'email', message: 'Please enter a valid email address' }]}
+            >
+              <StyledInput prefix={<MailOutlined />} placeholder="Email Address" />
+            </StyledFormItem>
+
+            <StyledFormItem
+              name="phone"
+              label="Phone Number (Optional)"
+              rules={[{ pattern: /^[0-9]{10}$/, message: 'Please enter a valid 10-digit phone number' }]}
+            >
+              <StyledInput prefix={<PhoneOutlined />} placeholder="Phone Number" />
+            </StyledFormItem>
+
+            <StyledFormItem name="country" label="Country">
+              <Select placeholder="Select your country" prefix={<GlobalOutlined />}>
+                <Option value="India">India</Option>
+                <Option value="USA">USA</Option>
+                <Option value="UK">UK</Option>
+                <Option value="Canada">Canada</Option>
+                <Option value="Australia">Australia</Option>
+                <Option value="Other">Other</Option>
+              </Select>
+            </StyledFormItem>
+
+            <StyledFormItem
+              name="How did you find us?"
+              label="How did you heart about us"
+            >
+              <StyledTextArea rows={4} placeholder="How did you heart about us" />
+            </StyledFormItem>
+
+            <StyledFormItem
+              name="message"
+              label="Message"
+              rules={[{ required: true, min: 10, message: 'Message must be at least 10 characters long' }]}
+            >
+              <StyledTextArea rows={4} placeholder="Write your message here..." />
+            </StyledFormItem>
+
+            <StyledFormItem>
+              <GreenButton type="primary" htmlType="submit" icon={<MessageOutlined />} block>
+                Send Message
+              </GreenButton>
+            </StyledFormItem>
+          </Form>
+        </FormWrapper>
+      </Container>
+      <Footer />
+    </>
+  );
 }

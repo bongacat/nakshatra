@@ -8,9 +8,14 @@ import Header from "./components/Header";
 import '@fontsource/orbitron';
 import '@fontsource/dm-sans';
 import { useRouter } from 'next/navigation';
+import Image from "next/image";
+
 
 
 import Footer from "./components/Footer";
+
+
+
 
 const StyledCard = styled(Card)`
   width: 100%;
@@ -22,6 +27,7 @@ const StyledCard = styled(Card)`
   padding: clamp(1.25rem, 4vw, 3rem);
   position: relative;
   overflow: hidden;
+  margin-bottom: 5rem;
 
   /* Grid background pattern */
   &::before {
@@ -178,6 +184,7 @@ const Home = () => {
         </StyledSubTypography>
         <StyledButton onClick={() => router.push('/contactus')}>Contact Us</StyledButton>
       </StyledCard>
+      <h1>hello</h1>
       <Footer />
       
 

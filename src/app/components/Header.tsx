@@ -8,16 +8,17 @@ import styled from "styled-components";
 import '@fontsource/orbitron';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 // Define menu items
 type MenuItem = Required<MenuProps>["items"][number];
 
-const items: MenuItem[] = [
-  { key: "about", label: "About Us" },
-  { key: "products", label: "Solutions" },
-  { key: "our-maps", label: "Our Maps" },
-  { key: "resources", label: "Resources" },
-  { key: "contact", label: "Contact Us" },
+const items = [
+  { key: "about", label: "About Us", href: "/aboutus" },
+  { key: "products", label: "Solutions", href: "/solutions" },
+  { key: "our-maps", label: "Our Maps", href: "/ourmaps" },
+  { key: "resources", label: "Resources", href: "/resources" },
+  { key: "contact", label: "Contact Us", href: "/contactus" },
 ];
 
 const Navbar = styled.nav`
@@ -51,16 +52,19 @@ const DesktopMenu = styled.ul`
     font-family: 'Orbitron', sans-serif;
   }
   a {
-    text-decoration: none;
+    text-decoration: none; /* Default: No underline */
     color: #7adc40;
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: transform 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+
     &:hover {
-      color: white;
+        transform: scale(1.1); /* Slight zoom effect */
+        text-decoration: underline; /* Underline on hover */
     }
-  }
+}
+
   @media (max-width: 1024px) { /* Tablets */
     gap: 2rem; /* Slightly reduce spacing */
   }
@@ -140,11 +144,21 @@ export default function Header() {
       
       {/* Desktop Menu */}
       <DesktopMenu>
-        <li>Home</li>
-        <li>Solutions</li>
-        <li>Our Maps</li>
-        <li>Resources</li>
-        <li>About Us</li>
+      <li>
+        <Link href="/">Home</Link>
+      </li>
+      <li>
+        <Link href="/solutions">Solutions</Link>
+      </li>
+      <li>
+        <Link href="/ourmaps">Our Maps</Link>
+      </li>
+      <li>
+        <Link href="/resources">Resources</Link>
+      </li>
+      <li>
+        <Link href="/aboutus">About Us</Link>
+      </li>
         <li><StyledHeaderButton onClick={() => router.push('/contactus')}>Contact Us</StyledHeaderButton></li>
       </DesktopMenu>
       
