@@ -9,12 +9,8 @@ import '@fontsource/orbitron';
 import '@fontsource/dm-sans';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-
-
-
 import Footer from "./components/Footer";
-
-
+import { BlogCardLeft, BlogCardRight } from './components/BlogCard';
 
 
 const StyledCard = styled(Card)`
@@ -53,13 +49,26 @@ const StyledTypography = styled(Typography)`
   text-align: center;
   font-size: clamp(1.65rem, 4vw, 1.75rem);
   color: white;
-  padding: 0.5rem;
+  padding: 0.3rem;
   font-family: 'DM Sans', sans-serif;
   margin-bottom: 0.25rem; /* Reduced margin-bottom */
   
   @media (min-width: 768px) {
     padding: 0.75rem;
-    margin-bottom: 0.5rem; /* Slightly increased for larger screens */
+    margin-bottom: 0.3rem; /* Slightly increased for larger screens */
+  }
+`;
+const StyledTypography2 = styled(Typography)`
+  text-align: center;
+  font-size: clamp(2.65rem, 5vw, 2.5rem);
+  color: white;
+  padding: 0.1rem;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 0.10rem; /* Reduced margin-bottom */
+  
+  @media (min-width: 768px) {
+    padding: 0.45rem;
+    margin-bottom: 0.3rem; /* Slightly increased for larger screens */
   }
 `;
 
@@ -140,6 +149,40 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const circularImage = styled(Image)`
+  
+  border-radius: 50%;
+`
+const StyledCard2 = styled(Card)`
+  width: 80%;
+  font-family: 'DM Sans', sans-serif;
+  background: transparent; /* Removes background */
+  backdrop-filter: blur(5px); /* Slight blur effect */
+  -webkit-backdrop-filter: blur(5px);
+  border: none;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5rem;
+
+  /* Center align using flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 5rem auto; /* Centers horizontally */
+
+  /* Left align on smaller screens */
+  @media (max-width: 768px) {
+    margin-left: 5%;
+    margin-right: auto;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+`;
+
+
 const Home = () => {
   const words = [
     "Interactive Mapping",
@@ -185,8 +228,19 @@ const Home = () => {
         <StyledButton onClick={() => router.push('/contactus')}>Contact Us</StyledButton>
       </StyledCard>
       <h1>hello</h1>
+      <StyledCard2>
+      <StyledTypography2 >
+          Meet Nakhastra
+        </StyledTypography2>
+        <StyledSubTypography>
+        The backbone of your geospatial ecosystem, enabling seamless scalability from single site to enterprise-wide operations. With top-tier security, real-time insights, and effortless integrations, we transform spatial data into actionable intelligence—boosting safety, efficiency, and decision-making.
+        </StyledSubTypography>
+      </StyledCard2>
+      <BlogCardLeft imageUrl="/DALL·E 2025-03-28 06.38.36 - A sleek, black-and-white digital illustration of a futuristic drone scanning and mapping terrain. The drone has a streamlined, high-tech design with m.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+      <BlogCardRight imageUrl="/DALL·E 2025-03-28 06.41.40 - A sleek, professional black-and-white version of a 3D isometric city map displayed on a smartphone screen. The city has detailed buildings, roads, and.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+      <BlogCardLeft imageUrl="/geospatial intillegence.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+      <BlogCardRight imageUrl="/mapped smarter.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
       <Footer />
-      
 
 
     </div>
