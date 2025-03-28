@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Image } from 'antd';
 
-interface BlogCardProps {
+interface CardProps {
   imageUrl: string;
   text?: string | React.ReactNode;
   variant?: 'left' | 'right';
 }
 
-const BlogSliderContainer = styled.div<{ $alignRight?: boolean }>`
+const SliderContainer = styled.div<{ $alignRight?: boolean }>`
   width: 95%;
   max-width: 1000px;
   margin: ${({ $alignRight }) =>
@@ -21,7 +21,9 @@ const BlogSliderContainer = styled.div<{ $alignRight?: boolean }>`
   border-radius: 25px;
   height: 350px;
   transition: all 0.3s;
-  border: 2px solid #b4c8a9;
+  border: 2px solid #ffffff;
+
+  
 
   @media (max-width: 992px) {
     max-width: 680px;
@@ -40,7 +42,7 @@ const BlogSliderContainer = styled.div<{ $alignRight?: boolean }>`
   }
 `;
 
-const BlogSliderItem = styled.div<{ $reverse?: boolean }>`
+const SliderItem = styled.div<{ $reverse?: boolean }>`
   display: flex;
   align-items: center;
   height: 100%;
@@ -51,7 +53,7 @@ const BlogSliderItem = styled.div<{ $reverse?: boolean }>`
   }
 `;
 
-const BlogSliderImg = styled.div<{ $right?: boolean }>`
+const SliderImg = styled.div<{ $right?: boolean }>`
   width: 250px;
   flex-shrink: 0;
   height: 250px;
@@ -85,7 +87,7 @@ const BlogSliderImg = styled.div<{ $right?: boolean }>`
   }
 `;
 
-const BlogSliderContent = styled.div`
+const SliderContent = styled.div`
   padding-right: 25px;
   flex: 1;
 
@@ -96,39 +98,39 @@ const BlogSliderContent = styled.div`
   }
 `;
 
-const BlogSliderText = styled.div`
+const SliderText = styled.div`
   color: #ffffff;
   margin-bottom: 30px;
   line-height: 1.5em;
   font-family: 'DM Sans', sans-serif;
 `;
 
-const BlogCard: React.FC<BlogCardProps> = ({ 
+const Card: React.FC<CardProps> = ({ 
   imageUrl, 
   text = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?",
   variant = 'left'
 }) => {
   return (
-    <BlogSliderContainer $alignRight={variant === 'right'}>
-      <BlogSliderItem $reverse={variant === 'right'}>
-        <BlogSliderImg $right={variant === 'right'}>
+    <SliderContainer $alignRight={variant === 'right'}>
+      <SliderItem $reverse={variant === 'right'}>
+        <SliderImg $right={variant === 'right'}>
           <Image src={imageUrl} alt="" />
-        </BlogSliderImg>
-        <BlogSliderContent>
-          <BlogSliderText>{text}</BlogSliderText>
-        </BlogSliderContent>
-      </BlogSliderItem>
-    </BlogSliderContainer>
+        </SliderImg>
+        <SliderContent>
+          <SliderText>{text}</SliderText>
+        </SliderContent>
+      </SliderItem>
+    </SliderContainer>
   );
 };
 
 // Variant-specific components
-export const BlogCardLeft: React.FC<Omit<BlogCardProps, 'variant'>> = (props) => (
-  <BlogCard {...props} variant="left" />
+export const CardLeft: React.FC<Omit<CardProps, 'variant'>> = (props) => (
+  <Card {...props} variant="left" />
 );
 
-export const BlogCardRight: React.FC<Omit<BlogCardProps, 'variant'>> = (props) => (
-  <BlogCard {...props} variant="right" />
+export const CardRight: React.FC<Omit<CardProps, 'variant'>> = (props) => (
+  <Card {...props} variant="right" />
 );
 
-export default BlogCard;
+export default Card;

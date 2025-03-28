@@ -33,6 +33,7 @@ const Navbar = styled.nav`
   top: 0;
   left: 0; /* Add this to ensure full-width positioning */
   z-index: 1000;
+  margin-bottom: 5rem;
 `;
 
 
