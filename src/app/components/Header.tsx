@@ -33,7 +33,7 @@ const Navbar = styled.nav`
   top: 0;
   left: 0; /* Add this to ensure full-width positioning */
   z-index: 1000;
-  margin-bottom: 5rem;
+  
 `;
 
 
@@ -45,7 +45,6 @@ const DesktopMenu = styled.ul`
   justify-content: flex-end; /* Push items to the right */
   flex-grow: 1; /* Allows menu to take available space */
   gap: 3rem;
-  margin: 0;
   padding: 0;
   li {
     display: flex;

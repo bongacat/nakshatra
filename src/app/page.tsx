@@ -189,6 +189,7 @@ const StyledCard2 = styled(Card)`
 `;
 
 
+
 const Home = () => {
   const words = [
     "Interactive Mapping",
@@ -242,11 +243,11 @@ const Home = () => {
         The backbone of your geospatial ecosystem, enabling seamless scalability from single site to enterprise-wide operations. With top-tier security, real-time insights, and effortless integrations, we transform spatial data into actionable intelligence—boosting safety, efficiency, and decision-making.
         </StyledSubTypography>
       </StyledCard2>
+      
       <CardLeft imageUrl="/DALL·E 2025-03-28 06.38.36 - A sleek, black-and-white digital illustration of a futuristic drone scanning and mapping terrain. The drone has a streamlined, high-tech design with m.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
       <CardRight imageUrl="/DALL·E 2025-03-28 06.41.40 - A sleek, professional black-and-white version of a 3D isometric city map displayed on a smartphone screen. The city has detailed buildings, roads, and.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
       <CardLeft imageUrl="/geospatial intillegence.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
       <CardRight imageUrl="/mapped smarter.webp" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-      
       <Footer />
 
 
