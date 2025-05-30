@@ -115,6 +115,7 @@ const StyledSubTypography = styled(Typography)`
     margin-top: 1.75rem; /* Adjusted margin for larger screens */
   }
 `;
+//;;
 
 const StyledMotionDiv = styled(motion.div)`
   position: absolute;
