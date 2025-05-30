@@ -4,7 +4,7 @@ import '@fontsource/orbitron';
 import styled from "styled-components";
 import { InstagramOutlined, LinkedinOutlined, YoutubeOutlined, XOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import Image from "next/image";
+
 
 
 const SocialContainer = styled.div`

@@ -10,8 +10,6 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
-// Define menu items
-type MenuItem = Required<MenuProps>["items"][number];
 
 const items = [
   { key: "about", label: "About Us", href: "/aboutus" },
