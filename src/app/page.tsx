@@ -13,13 +13,9 @@ import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Footer from "./components/Footer";
 import { CardLeft, CardRight } from './components/Card';
+import MyComponent from "./components/box";
 
 
-
-const TAGS = [
-  "HTML", "CSS", "JavaScript", "TypeScript", "Tailwind", 
-  "React", "Next.js", "Gatsby", "UI/UX", "SVG", "Animation", "WebDev"
-];
 
 const StyledCard = styled(Card)`
   width: 100%;
@@ -237,7 +233,7 @@ const Home = () => {
         </StyledSubTypography>
         <StyledButton onClick={() => router.push('/contactus')}>Contact Us</StyledButton>
       </StyledCard>
-      
+      <MyComponent />
       <StyledCard2>
       <StyledTypography2 >
           Meet Nakhastra
