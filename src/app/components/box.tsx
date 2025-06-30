@@ -126,18 +126,17 @@ const MyComponent: React.FC = () => {
     <Container>
       <LeftBox>
         <Title
-          level={2}
-          style={{
-            color: 'white',
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: '48px'
-          }}
-        >
-          
-          LOREM IPSUM
+  level={2}
+  style={{
+    color: 'white',
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: '33px',
+    lineHeight: '1.6' // Adjust this value as needed
+  }}
+>
+  Run a campus or a large facility? Unsure on managing the logistical nightmares during emergency evacuations?
+</Title>
 
-
-        </Title>
       </LeftBox>
 
       <RightBox>

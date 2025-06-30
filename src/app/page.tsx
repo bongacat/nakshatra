@@ -11,8 +11,8 @@ import '@fontsource/dm-sans';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Footer from "./components/Footer";
-import { CardLeft, CardRight } from './components/Card';
 import MyComponent from "./components/box";
+import CircularGallery from "./components/Ciculargallery";
 
 const StyledTitle = styled(Typography)`
   text-align: center;
@@ -109,6 +109,18 @@ We at Nakshatra help large public spaces like airports, theme parks, malls, hosp
         </StyledSubTypography>
         <StyledButton onClick={() => router.push('/contactus')}>Contact Us</StyledButton>
       </StyledCard>
+      <div style={{ height: '800px', position: 'relative' }}>
+  <CircularGallery 
+  items={[
+    { image: "/arFinal-removebg-preview.png", text: "LOl" },
+    { image: "/emergencyFinal.png", text: "" },
+    { image: "/indoorFinal.png", text: "" },
+    { image: "/outdoor2Final.png", text: "" },
+   
+  ]}
+  bend={0.5}
+/>
+</div>
       <MyComponent />
       <Footer />
     </div>
