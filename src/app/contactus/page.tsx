@@ -6,19 +6,46 @@ import Header from "@/app/components/Header";
 import { Form, Input, Button, Select, Row, Col } from 'antd';
 import { UserOutlined, MailOutlined, MessageOutlined, PhoneOutlined } from '@ant-design/icons';
 import { supabase } from "@/utils/supabaseClient"; // adjust path accordingly
-import { message as antdMessage } from 'antd'; // for toast messages
+import RotatingWords from "../components/RotatingWords";
 import { useState } from 'react';
 import { keyframes } from 'styled-components';
 
 
 
+
 const Container = styled.div`
   display: flex;
-  justify-content: right;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
   padding: 40px 20px;
   min-height: 100vh;
   background: linear-gradient(120deg, #0d0d0d 0%, #1c1c1c 100%);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
+
+const LeftWrapper = styled.div`
+  flex: 1;
+  padding: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  width: clamp(280px, calc(40vw + 2rem), 500px); /* Dynamic width */
+  min-width: 280px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+
+
 
 const FormWrapper = styled.div`
   width: 100%;
@@ -185,6 +212,9 @@ const showToast = (type: 'success' | 'error', message: string) => {
 
       <Header />
       <Container>
+         <LeftWrapper>
+    <RotatingWords />
+  </LeftWrapper>
         <FormWrapper>
           <StyledHeading>Contact Us</StyledHeading>
           <Form
