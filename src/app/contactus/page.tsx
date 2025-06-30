@@ -136,36 +136,6 @@ const StyledFormItem = styled(Form.Item)`
   }
 `;
 
-const StyledSelect = styled(Select)`
-  width: 100% !important;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 10px;
-  border: none;
-  color: #fff !important;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-
-  .ant-select-selector {
-    background: transparent !important;
-    color: #fff !important;
-    border: none !important;
-    padding: 14px !important;
-    border-radius: 10px !important;
-    display: flex !important;
-    align-items: center !important;
-    font-weight: 500;
-  }
-
-  .ant-select-arrow {
-    color: #7adc40 !important;
-  }
-
-  &:focus, &:hover {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 12px rgba(122, 220, 64, 0.4);
-    outline: none;
-  }
-`;
 
 
 
@@ -222,7 +192,7 @@ const showToast = (type: 'success' | 'error', message: string) => {
   onFinish={async (values) => {
     const { firstName, lastName, email, phone, message, ["How did you find us?"]: hdha } = values;
 
-    const { data, error } = await supabase.from('contactform').insert([{
+    const {error } = await supabase.from('contactform').insert([{
       f_name: firstName,
       l_name: lastName,
       email: email,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { Button, Menu } from "antd";
 import styled from "styled-components";
@@ -127,12 +127,6 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
-  // Optional: Close mobile menu on route change
-  // useEffect(() => {
-  //   const handleRouteChange = () => setMenuOpen(false);
-  //   router.events?.on('routeChangeStart', handleRouteChange);
-  //   return () => router.events?.off('routeChangeStart', handleRouteChange);
-  // }, []);
 
   return (
     <Navbar>

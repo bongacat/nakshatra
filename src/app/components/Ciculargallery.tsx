@@ -14,9 +14,9 @@ import "./CircularGallery.css";
 
 type GL = Renderer["gl"];
 
-function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
+function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number) {
   let timeout: number;
-  return function (this: any, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     window.clearTimeout(timeout);
     timeout = window.setTimeout(() => func.apply(this, args), wait);
   };
@@ -26,11 +26,11 @@ function lerp(p1: number, p2: number, t: number): number {
   return p1 + (p2 - p1) * t;
 }
 
-function autoBind(instance: any): void {
+function autoBind(instance: object): void {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach((key) => {
-    if (key !== "constructor" && typeof instance[key] === "function") {
-      instance[key] = instance[key].bind(instance);
+    if (key !== "constructor" && typeof (instance as Record<string, unknown>)[key] === "function") {
+      (instance as Record<string, unknown>)[key] = ((instance as Record<string, unknown>)[key] as Function).bind(instance);
     }
   });
 }
@@ -426,7 +426,7 @@ class App {
     last: number;
     position?: number;
   };
-  onCheckDebounce: (...args: any[]) => void;
+  onCheckDebounce: () => void;
   renderer!: Renderer;
   gl!: GL;
   camera!: Camera;
@@ -447,7 +447,7 @@ class App {
   isDown: boolean = false;
   start: number = 0;
 
-  constructor(
+ constructor(
     container: HTMLElement,
     {
       items,
@@ -460,7 +460,7 @@ class App {
     document.documentElement.classList.remove("no-js");
     this.container = container;
     this.scroll = { ease: 0.05, current: 0, target: 0, last: 0 };
-    this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
+    this.onCheckDebounce = debounce(() => this.onCheck(), 200);
     this.createRenderer();
     this.createCamera();
     this.createScene();
