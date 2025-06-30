@@ -128,4 +128,3 @@ We at Nakshatra help large public spaces like airports, theme parks, malls, hosp
 };
 
 export default Home;
-1

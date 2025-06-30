@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
-import { Form, Input, Button, Select, Row, Col } from 'antd';
+import { Form, Input, Button, Row, Col } from 'antd';
 import { UserOutlined, MailOutlined, MessageOutlined, PhoneOutlined } from '@ant-design/icons';
 import { supabase } from "@/utils/supabaseClient"; // adjust path accordingly
 import RotatingWords from "../components/RotatingWords";
