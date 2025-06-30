@@ -184,7 +184,7 @@ const MyComponent: React.FC = () => {
         {/* Row 2 */}
         <RegionBox style={{ gridColumn: 1, gridRow: 3 }}>
           <RegionTitle>
-            Theme park & venues <FerrisWheel size={25} />
+            Theme parks <FerrisWheel size={25} />
           </RegionTitle>
           <StyledList>
             <li>Map rides, shows, food zones</li>
@@ -211,7 +211,7 @@ const MyComponent: React.FC = () => {
 
         <RegionBox style={{ gridColumn: 5, gridRow: 3 }}>
           <RegionTitle>
-            Government buildings <Landmark size={25} />
+            Campuses<Landmark size={25} />
           </RegionTitle>
           <StyledList>
             <li>Department-level navigation</li>
